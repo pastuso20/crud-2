@@ -86,7 +86,7 @@ fetch('https://api-crud-qrd4.onrender.com/posts')
           </div>
           <div class="action">
             <i class="fa-solid fa-pen-to-square" title="editar"></i>
-            <i class="fa-solid fa-trash" title="editar"></i>
+            <i class="fa-solid fa-trash" title="borrar"></i>
           </div>
         </div>
       `;
@@ -130,7 +130,7 @@ fetch('https://dummyjson.com/comments')
 
 
 const allPost = document.getElementById('allpost');
-allPost.addEventListener('click', (e) => {
+allPost.addEventListener('click', async (e) => {
     console.log(e.target.parentElement.parentElement);
     console.log(e.target);
 
@@ -152,13 +152,26 @@ allPost.addEventListener('click', (e) => {
 
                 // Hacer lo que necesites con el valor recuperado
                 console.log('Valor de __id:', idValue);
-                console.log(e.target.id);
-                if(e.target.id == 'action-delete'){
-                    console.log('BORRAR');
+                if(e.target.title == 'editar') {
+                    console.log('EDITAR');
+                    try {
+                        const response = fetch(`https://api-crud-qrd4.onrender.com/update/${idValue}`);
+                        const data = response.json();
+                        console.log('Respuesta de la actualización:', data);
+                    } catch (error) {
+                        console.error('Error al actualizar:', error);
+                    }
                 }
 
-                if(e.target.id == 'action-update'){
-                    console.log('ACTUALIZAR');
+                if(e.target.title == 'borrar'){
+                    console.log('BORRAR');
+                    try {
+                        const response = await fetch(`https://api-crud-qrd4.onrender.com/delete/${idValue}`);
+                        const data = await response.json();
+                        console.log('Respuesta de la eliminación:', data);
+                    } catch (error) {
+                        console.error('Error al eliminar:', error);
+                    }
                 }
 
             }

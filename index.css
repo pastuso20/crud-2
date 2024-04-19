@@ -110,5 +110,71 @@ body .post .sections p:first-child{
     font-weight: bold;
 }
 
+form{
+    height: 20vh;
+    background-color: crimson;
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "avatar input" "avatar icons";
+}
+
+form .avatar-container{
+    grid-area: avatar;
+    background: chartreuse;
+}
+
+form .avatar-container{
+    grid-area: input;
+    background: rgb(74, 102, 46);
+
+}
+
+form .icons{
+    grid-area: icons;
+    background: rgb(74, 102, 46);
+
+}
+
+.active{
+    color: orange;
+}
+
+.logo{
+    color: rgb(27, 27, 27);
+}
+
+@media screen and (max-width: 868px) {
+    body{
+        background: rgb(230, 230, 230);
+        grid-template-columns: 10% 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    body .whatsup{
+        display: none;
+    }
+
+    .cont-tabs{
+        font-size: 1.2rem;
+    }
+
+    .cont-tabs p{
+        display: none;
+    }
+
+    .cont-tabs .menu-button{
+        margin-top: 10px;
+        color: whitesmoke;
+    }
+
+    .cont-tabs .menu-button button{
+        background: orange;
+        border: none;
+        border-radius: 50%;
+        color: whitesmoke;
+        max-width: 50px;
+    }
+}
 
 

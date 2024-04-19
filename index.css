@@ -5,12 +5,12 @@
 }
 
 body{
-    background: rgb(41, 47, 65);
     display: grid;
     height: 100vh;
     grid-template-columns: 20% repeat(2, 1fr);
     grid-template-rows: 1fr;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
 }
 
 .cont-tabs{
@@ -41,6 +41,7 @@ body{
     color: gray;
     transition: all .2s ease;
     font-size: 1.2rem;
+    gap: 10px;
 }
 
 .cont-tabs .tab:hover{
@@ -51,7 +52,7 @@ body{
 }
 
 .cont-tabs .tab p{
-    color: orange;
+    color: gray;
     width: 100px;
     font-size: 1.2rem;
 }
@@ -66,8 +67,17 @@ body{
 }
 
 .cont-tabs .menu-button button{
+    background-color: orange;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 1.2rem;
     height: 100%;
     width: 100%;
+}
+
+.cont-tabs .menu-button button:hover{
+    cursor: pointer;
 }
 
 .cont-tabs .menu-button i{
@@ -76,6 +86,7 @@ body{
 
 .cont-tabs .menu-user-info{
     display: grid;
+    max-width: 60px;
 }
 
 .cont-tabs .menu-user-info img{
@@ -112,28 +123,198 @@ body .post .sections p:first-child{
 
 form{
     height: 20vh;
-    background-color: crimson;
     display: grid;
-    grid-template-columns: 50px 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: 100px 1fr;
     grid-template-areas: "avatar input" "avatar icons";
+    border-bottom: 1px solid rgba(128, 128, 128, 0.492);
 }
 
 form .avatar-container{
     grid-area: avatar;
-    background: chartreuse;
+    padding: 10px;
 }
 
-form .avatar-container{
+form .avatar-container .img-container{
+    width: 100%;
+    height: 50px;
+}
+
+form .avatar-container .img-container img{
+    width: 100%;
+    border-radius: 50%;
+    border: 1px solid rgba(128, 128, 128, 0.492);
+}
+
+form .input-container{
     grid-area: input;
-    background: rgb(74, 102, 46);
+    padding: 10px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.492);
 
 }
 
-form .icons{
-    grid-area: icons;
-    background: rgb(74, 102, 46);
+form .input-container textarea{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    color: #222;
+    font-weight: 500;
+    resize: none;
+    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2rem;
+}
 
+form .input-container textarea::placeholder{
+    font-size: 1.5rem;
+}
+
+form .input-container textarea:focus{
+    outline: none;
+}
+
+form .icons-container{
+    grid-area: icons;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+form .icons-container .icons-form{
+    width: 70%;
+    height: 100%;
+    margin-left: 10px;
+    color: orange;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+form .icons-container .button-container {
+    margin-right: 10px;
+    width: 30%;
+}
+
+form .icons-container .button-container button {
+    background: orange;
+    margin-right: 10px;
+    height: 30px;
+    width: 100%;
+    border: none;
+    border-radius: 20px;
+    color: whitesmoke;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+form .icons-container .button-container button:hover {
+    cursor: pointer;
+}
+
+
+/*
+ESTILOS DE LOS POSTS
+*/
+
+.onepost{
+    grid-template-areas: "avatar name" "avatar description" "avatar actions";
+    height: auto;
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: 50px 1fr 50px;
+    /* border: 1px solid rgba(128, 128, 128, 0.492); */
+
+}
+
+.onepost .avatar-container{
+    grid-area: avatar;
+    padding: 10px;
+}
+
+.onepost .avatar-container .img-container{
+    width: 100%;
+    height: 50px;
+}
+
+.onepost .avatar-container .img-container img{
+    width: 100%;
+    border-radius: 50%;
+    border: 1px solid rgba(128, 128, 128, 0.492);
+}
+.onepost .name-container{
+    grid-area: name;
+    display: flex;
+    color: whitesmoke;
+    align-items: center;
+    gap: 5px;
+    color: gray;
+}
+
+.onepost .name-container p:first-child{
+    padding-left: 10px;
+    font-weight: bold;
+    color: #222;
+}
+
+.onepost .description-container{
+    grid-area: description;
+    padding: 0 10px;
+    color: #222;
+}
+
+.onepost .description-container textarea{
+   background: crimson;
+   resize: none;
+   border: none;
+   width: 100%;
+   height: 100%;
+   padding: 10px;
+   overflow: hidden;
+}
+
+.onepost .description-container textarea:focus{
+    outline: none;
+}
+
+.onepost .actions-container{
+    grid-area: actions;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+}
+
+.onepost .actions-container .action{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.__id{
+    color: red;
+}
+
+body .whatsup{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+body .whatsup .item{
+   background: royalblue;
+   background: rgb(230, 230, 230);
+   padding: 10px;
+   border-radius: 10px;
+}
+
+body .whatsup .item .item-name{
+    font-weight: bold;
 }
 
 .active{
@@ -143,6 +324,12 @@ form .icons{
 .logo{
     color: rgb(27, 27, 27);
 }
+
+/*
+************+
+****** PARA SMARTPHONE *******
+*************
+*/
 
 @media screen and (max-width: 868px) {
     body{
